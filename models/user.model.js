@@ -11,6 +11,7 @@ const subSchema = new Schema({
 const userSchema = new Schema({
   _id: { type: objectId, auto: true },
   name: { type: String, required: true },
+  email: { type: String, required: true },
   password: { type: String, require: true },
 
   exercise: [subSchema],

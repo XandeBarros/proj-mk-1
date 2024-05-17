@@ -25,14 +25,14 @@ class ExerciseController {
   update = (req, res) => {
     const { id } = req.params;
     const body = req.body;
-    exercise.findOneAndUpdate({ _id: objectId(id) }, body)
+    exercise.findOneAndUpdate({ _id: new mongoose.Types.ObjectId(id) }, body)
       .then(exer => { return res.status(200).send(exer); })
       .catch(err => { return res.status(500).send({ message: `${err}` }); });
   }
 
   delete = (req, res) => {
     const { id } = req.params;
-    exercise.findByIdAndDelete({ _id: objectId(id) })
+    exercise.findByIdAndDelete({ _id: new mongoose.Types.ObjectId(id) })
       .then(exer => { return res.status(200).send('Exercise deleted'); })
       .catch(err => { return res.status(500).send({ message: `${err}` }); });
   }
